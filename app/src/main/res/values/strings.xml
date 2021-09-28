@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Formular</string>
+    <string name="text_name_v">Text:</string>
+    <string name="adresse_text_v">Adresse:</string>
+    <string name="geburtstag_text_v">Geburtstag</string>
 </resources>
