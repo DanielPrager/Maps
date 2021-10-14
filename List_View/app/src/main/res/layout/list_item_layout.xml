@@ -8,16 +8,17 @@
 
     <ImageView
         android:id="@+id/imageView_Cocktail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="21dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="34dp"
         android:layout_marginBottom="37dp"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@mipmap/mojito" />
 
     <TextView
         android:id="@+id/textView_Name"
@@ -36,14 +37,39 @@
 
     <TextView
         android:id="@+id/textView_Aufwand"
-        android:layout_width="98dp"
-        android:layout_height="25dp"
+        android:layout_width="190dp"
+        android:layout_height="28dp"
         android:layout_marginTop="21dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.319"
         app:layout_constraintStart_toEndOf="@+id/imageView_Cocktail"
         app:layout_constraintTop_toBottomOf="@+id/textView_Name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.036" />
+
+    <TextView
+        android:id="@+id/textView_Zutaten"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="88dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toEndOf="@+id/imageView_Cocktail"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Aufwand"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/textView_anz"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_Zutaten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView_Zutaten"
+        app:layout_constraintTop_toTopOf="@+id/textView_Zutaten" />
 </androidx.constraintlayout.widget.ConstraintLayout>

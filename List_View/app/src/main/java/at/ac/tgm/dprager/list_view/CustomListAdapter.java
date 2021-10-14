@@ -1,6 +1,7 @@
 package at.ac.tgm.dprager.list_view;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,9 @@ public class CustomListAdapter  extends BaseAdapter {
             holder.imageView_Cocktail = (ImageView) convertView.findViewById(R.id.imageView_Cocktail);
             holder.textView_Name = (TextView) convertView.findViewById(R.id.textView_Name);
             holder.textView_Aufwand = (TextView) convertView.findViewById(R.id.textView_Aufwand);
+            holder.textView_Zutaten = (TextView) convertView.findViewById(R.id.textView_Zutaten);
+            holder.textView_Zutaten.setTypeface(null, Typeface.BOLD);
+            holder.textView_anz = (TextView) convertView.findViewById(R.id.textView_anz);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -52,7 +56,13 @@ public class CustomListAdapter  extends BaseAdapter {
 
         Cocktail cocktail = this.listData.get(position);
         holder.textView_Name.setText(cocktail.getCocktailName());
-        holder.textView_Aufwand.setText("Population: " + cocktail.getAufwand());
+        holder.textView_Aufwand.setText("Aufwand: " + cocktail.getAufwand()+" Minuten");
+        holder.textView_Zutaten.setText("Zutaten: ");
+        if(cocktail.getZutaten()>1) {
+            holder.textView_anz.setText(cocktail.getZutaten() + " Produkte");
+        } else {
+            holder.textView_anz.setText(cocktail.getZutaten() + " Produkt");
+        }
 
         int imageId = this.getMipmapResIdByName(cocktail.getCocktail_image());
 
@@ -74,6 +84,8 @@ public class CustomListAdapter  extends BaseAdapter {
         ImageView imageView_Cocktail;
         TextView textView_Name;
         TextView textView_Aufwand;
+        TextView textView_Zutaten;
+        TextView textView_anz;
 
     }
 

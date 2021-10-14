@@ -8,10 +8,13 @@ public class Cocktail {
     private String cocktail_name;
     private int aufwand;
 
-    public Cocktail(String cocktail_image, String cocktail_name, int aufwand) {
+    private int zutaten;
+
+    public Cocktail(String cocktail_image, String cocktail_name, int aufwand, int zutaten) {
         this.cocktail_image = cocktail_image;
         this.cocktail_name = cocktail_name;
         this.aufwand = aufwand;
+        this.zutaten = zutaten;
     }
 
     public int getAufwand() {
@@ -39,9 +42,17 @@ public class Cocktail {
         this.cocktail_image = cocktail_image;
     }
 
+    public int getZutaten() {
+        return zutaten;
+    }
+
+    public void setZutaten(int zutaten) {
+        this.zutaten = zutaten;
+    }
+
     @Override
     public String toString() {
-        return this.cocktail_name+" (Dauer: "+ this.aufwand+")";
+        return this.cocktail_name+" (Dauer: "+ this.aufwand+" Minuten)";
     }
 
 
