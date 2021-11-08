@@ -2,15 +2,26 @@
     <!-- Base application theme. -->
     <style name="Theme.Formular" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#baffa5</item>
-        <item name="colorPrimaryVariant">#eeffd7</item>
-        <item name="colorOnPrimary">#88cb75</item>
+        <item name="colorPrimary">#00c853</item>
+        <item name="colorPrimaryVariant">#5efc82</item>
+        <item name="colorOnPrimary">#009624</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#89f1ff</item>
-        <item name="colorSecondaryVariant">#beffff</item>
-        <item name="colorOnSecondary">#53becc</item>
+        <item name="colorSecondary">#ffb300</item>
+        <item name="colorSecondaryVariant">#ffe54c</item>
+        <item name="colorOnSecondary">#c68400</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
+<!--
+<resources>
+<color name="primaryColor">#00c853</color>
+<color name="primaryLightColor">#5efc82</color>
+<color name="primaryDarkColor">#009624</color>
+<color name="secondaryColor">#ffb300</color>
+<color name="secondaryLightColor">#ffe54c</color>
+<color name="secondaryDarkColor">#c68400</color>
+<color name="primaryTextColor">#000000</color>
+<color name="secondaryTextColor">#000000</color>
+</resources>-->
