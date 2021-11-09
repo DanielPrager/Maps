@@ -7,15 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="245dp"
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/buttonAuswahl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:singleSelection="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/maennlich"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mann" />
+
+        <Button
+            android:id="@+id/weiblich"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Frau" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Name"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="125dp"
         android:hint="Name"
         app:counterEnabled="true"
         app:counterMaxLength="25"
@@ -33,7 +59,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Adresse"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -58,7 +83,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Geburtstag"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -77,6 +101,31 @@
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/anmelden"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/anmelden"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Geburtstag" />
+
+    <Button
+        android:id="@+id/abbrechen"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/abbrechen"
+        app:icon="@drawable/ic_baseline_cancel_24"
+        app:layout_constraintStart_toEndOf="@+id/anmelden"
+        app:layout_constraintTop_toBottomOf="@+id/Geburtstag" />
     <!-- Hier starten die Buttons-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

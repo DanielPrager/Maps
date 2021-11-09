@@ -4,4 +4,8 @@
     <string name="adresse_text_v">Adresse:</string>
     <string name="geburtstag_text_v">Geburtstag</string>
     <string name="anmeldung">Anmeldung</string>
+    <string name="anmelden">anmelden</string>
+    <string name="abbrechen">abbrechen</string>
+    <string name="Mann">Männlich</string>
+    <string name="Frau">Weiblich</string>
 </resources>
