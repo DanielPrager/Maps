@@ -2,6 +2,7 @@ package at.ac.tgm.dprager.formular;
 
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,12 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String EXTRA_TEXT = "at.ac.tgm.dprager.formular.EXTRS_TEXT";
-    public static final String EXTRA_TEXT1 = "at.ac.tgm.dprager.formular.EXTRS_TEXT1";
-    public static final String EXTRA_NUMBER = "at.ac.tgm.dprager.formular.EXTRS_NUMBER";
+    public static final String EXTRA_TEXT = "at.ac.tgm.dprager.formular.EXTRA_TEXT";
+    public static final String EXTRA_TEXT1 = "at.ac.tgm.dprager.formular.EXTRA_TEXT1";
+    public static final String EXTRA_NUMBER = "at.ac.tgm.dprager.formular.EXTRA_NUMBER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,38 +28,66 @@ public class MainActivity extends AppCompatActivity {
         Button anmelden = (Button) findViewById(R.id.anmelden);
         Button abbrechen = (Button) findViewById(R.id.abbrechen);
 
-        TextInputEditText name = findViewById(R.id.Name);
-        TextInputEditText adresse = findViewById(R.id.Adresse);
-        TextInputEditText geburtstag = findViewById(R.id.Geburtstag);
+        TextInputLayout name = findViewById(R.id.Name);
+        TextInputLayout adresse = findViewById(R.id.Adresse);
+        TextInputLayout geburtstag = findViewById(R.id.Geburtstag);
+
+        geburtstag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String datum=geburtstag.getEditText().getText().toString();
+                if ( datum.length() != 10 || datum.charAt(2) != '.' || datum.charAt(5) != '.') {
+                    geburtstag.setError("Falsches Format");
+
+                } else {
+                    geburtstag.setError(null);
+                }
+            }
+        });
+
 
 
         anmelden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchScreen();
+                String datum=geburtstag.getEditText().getText().toString();
+                if ( datum.length() != 10 || datum.charAt(2) != '.' || datum.charAt(5) != '.') {
+                    geburtstag.setError("Falsches Format");
+
+                } else {
+                    geburtstag.setError(null);
+                    switchScreen();
+                }
+
             }
         });
+
 
         abbrechen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name.getText().clear();
-                adresse.getText().clear();
-                geburtstag.getText().clear();
+                name.getEditText().setText("");
+                adresse.getEditText().setText("");
+                geburtstag.getEditText().setText("");
+
             }
         });
+
     }
 
 
     public void switchScreen() {
-        EditText name = (EditText) findViewById(R.id.Name);
-        String text = name.getText().toString();
+        TextInputLayout name = (TextInputLayout) findViewById(R.id.Name);
+        String text = name.getEditText().getText().toString();
 
-        EditText adresse = (EditText) findViewById(R.id.Adresse);
-        String text2 = adresse.getText().toString();
+        TextInputLayout adresse = (TextInputLayout) findViewById(R.id.Adresse);
+        String text2 = adresse.getEditText().getText().toString();
 
-        EditText datum = (EditText) findViewById(R.id.Geburtstag);
-        int zahl = Integer.parseInt(datum.getText().toString());
+        TextInputLayout datum = (TextInputLayout) findViewById(R.id.Geburtstag);
+
+        String geburtsdatum=datum.getEditText().getText().toString();
+
+        int zahl = Integer.parseInt(geburtsdatum.substring(0,2)+geburtsdatum.substring(3,5)+geburtsdatum.substring(6));
 
         Intent intent = new Intent(this, Anzeige.class);
         intent.putExtra(EXTRA_TEXT, text);
@@ -66,4 +96,37 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
+    public boolean fehlerSuche() {
+
+        TextInputLayout geburtstag =(TextInputLayout) findViewById(R.id.Geburtstag);
+        String datum=geburtstag.getEditText().getText().toString();
+        if(datum.length()==9 && datum.charAt(2)=='.' && datum.charAt(5)=='.') {
+            return true;
+        }else {
+            return false;
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
